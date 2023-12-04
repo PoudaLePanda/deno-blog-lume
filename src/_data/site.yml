@@ -1,0 +1,14 @@
+layout: layout.njk
+title: This is my website
+description: I am writing about my experiences as a naval navel-gazer.
+author:
+  name: Léo Meyniel,
+  email: info@leomeyniel.fr,
+  url: https://leomeyniel.fr/about-me/
+
+  # Metas plugin https://lume.land/plugins/metas/#description
+metas:
+  site: Léo Meyniel
+  description: General description of the blog
+  title: "=This is my website"
+  image: "=image"

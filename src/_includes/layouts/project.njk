@@ -1,0 +1,43 @@
+---
+layout: layouts/base.njk
+bodyClass: body-project
+---
+<article class="project" data-pagefind-body>
+  <div class="project-header">
+    <h1 class="project-title">{{ title }}</h1>
+
+    <nav class="project-tags">
+    {% for tag in tags %}
+      <a href="/tags/{{ tag }}/" class="tag">{{ tag }}</a>
+    {% endfor %}
+    </nav>
+
+    <time class="project-date" datetime="{{ date | date('DATETIME') }}">
+      {{ date | date('HUMAN_DATE') }}
+    </time>
+  </div>
+
+  <div class="project-body">
+    {{ content | safe }}
+  </div>
+</article>
+
+<hr>
+
+<nav class="project-navigation">
+  <ul>
+    {%- set previousproject = search.previousPage(url, "type=projects") %}
+    {%- if previousproject %}
+    <li>
+      ← Previous: <a href="{{ previousproject.data.url }}" rel="prev">{{ previousproject.data.title }}</a>
+    </li>
+    {% endif %}
+
+    {%- set nextproject = search.nextPage(url, "type=projects") %}
+    {%- if nextproject %}
+    <li>
+      <strong>Next: <a href="{{ nextproject.data.url }}" rel="next">{{ nextproject.data.title }}</a> →</strong>
+    </li>
+    {% endif %}
+  </ul>
+</nav>

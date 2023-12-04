@@ -1,0 +1,24 @@
+<ul class="projectslist">
+  {% for project in projectslist %}
+  <li class="projectslist-project">
+    <a href="{{ project.data.url }}" class="projectslist-title"{% if entry.data.url == url %} aria-current="page"{% endif %}>
+      {% if project.data.title %}
+        <strong>{{ project.data.title }}</strong>
+      {% else %}
+        <code>{{ project.url }}</code>
+      {% endif %}
+    </a>
+
+    <time class="projectslist-date" datetime="{{ project.data.date | date('DATETIME') }}">
+      {{ project.data.date | date('HUMAN_DATE') }}
+    </time>
+
+    {% for tag in project.data.tags %}
+    {% set page = search.page("type=tag tag='" + tag + "'") %}
+    {% if page %}
+    <a href="{{ page.data.url  }}" class="tag">{{ tag }}</a>
+    {% endif %}
+    {% endfor %}
+  </li>
+{% endfor %}
+</ul>

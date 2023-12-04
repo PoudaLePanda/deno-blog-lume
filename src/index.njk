@@ -1,0 +1,26 @@
+---
+title: "Home"
+url: /
+---
+
+{{ comp.home.landing() | safe }}
+
+{# {% nav.menu("/", "url=asc") %}
+
+{% set projectslist = search.pages("type=projects", "date=desc", 3) %}
+
+<h1>Latest {% if projectslist.length == 1 %}Project{% else %}{{ projectslist.length }} Projects{% endif %}</h1>
+
+{% include "templates/projectslist.njk" %}
+
+<hr>
+
+{% set projectslist  = search.pages("pinned=true") %}
+
+{%if projectslist.length %}
+  <h2>Pinned Project:</h1>
+  {% include "templates/projectslist.njk" %}
+  <hr>
+{% endif %}
+
+<p>More posts can be found in <a href="/projects/">the archive</a>.</p> #}
